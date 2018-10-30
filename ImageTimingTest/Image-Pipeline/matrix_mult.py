@@ -9,11 +9,15 @@ Created on Tue Oct 16 16:54:56 2018
 import numpy as np
 from timeit import default_timer as timer
 
+
 t1 = timer()
 A = np.random.random((10000, 10000))
-t2 = timer()
-A = np.multiply(A, A)
-t3 = timer()
+for i in range(100):
+    t2 = timer()
+    A = np.multiply(A, A)
+    t3 = timer()
+    print("T3-T2", t3-t2)
+
 
 B = np.random.rand(10000, 10000)
 t4 = timer()
